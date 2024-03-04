@@ -1,0 +1,71 @@
+#:kivy 1.0.9
+
+<Principal>:
+    orientation: 'vertical'
+    Widget:
+        canvas:
+            Rectangle:
+                pos: (0, 100)
+                size: (400,500)
+                source: root.minha_imagem
+    BoxLayout:
+        size_hint: (None,None)
+        height: 50
+        width: 400
+        Label:
+            id: mensagem
+            pos_hint: {'x':0.5,'y':0.0} 
+            text: ''
+            font_size: 15
+            markup: True
+    BoxLayout:
+        size_hint_y: None   
+        height: 50
+        orientation: 'horizontal'
+        FloatLayout:   
+            Label:
+                size_hint: (None,None)
+                height: 40
+                width: 50
+                text: 'Temperaturas'
+                pos_hint: {'x':0.05,'y':0.1}
+            Spinner:
+                id: txTemp
+                text: 'Inicial'
+                values: ('Aguas Termais','Ferro','Fogueira','Forno','Raio','Secador')
+                size_hint: (None,None)
+                height: 40
+                width: 110
+                pos_hint: {'x':0.30,'y':0.1}
+                on_text: root.selecione(txTemp.text)
+            Label:
+                size_hint: (None,None)
+                height: 40
+                width: 30
+                text: 'Som'
+                pos_hint: {'x':0.6,'y':0.1}
+            CheckBox:
+                id: check_som
+                active: True
+                size_hint: (None,None)
+                height: 40
+                width: 20
+                text: 'som'
+                pos_hint: {'x':0.7,'y':0.1}
+                on_active: root.controla_som(check_som.active)
+            Button:
+                size_hint: (None,None)
+                height: 40
+                width: 50
+                text: 'Sair'
+                pos_hint: {'x':0.85,'y':0.1}
+                on_press: root.sair()
+
+
+
+
+
+
+
+
+
